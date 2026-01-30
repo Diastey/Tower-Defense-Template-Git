@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GunStats stats;
+
+    public Gun(GunStats stats)
     {
-        
+        this.stats = stats;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FireBullet(Transform firePoint)
     {
-        
+        GameObject.Instantiate(stats.bullet, firePoint.position, firePoint.rotation);
     }
 }

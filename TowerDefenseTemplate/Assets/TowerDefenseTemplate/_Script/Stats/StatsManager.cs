@@ -1,17 +1,28 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
-    public List<StatsData> statsList = new List<StatsData>();
+    public List<StatsDefinition> statsList = new List<StatsDefinition>();
 
-    public T GetStat<T>() where T : StatsData
+    private readonly Dictionary<Type, StatsInstance> stats = new();
+
+    private void Awake()
     {
-        for (int i = 0; i < statsList.Count; i++)
+        foreach (var def in statsList)
         {
-            if (statsList[i] is T stat)
-                return stat;
+            var type = def.GetType();
+
+            if (stats.ContainsKey(type))
+                continue;
+
+            stats[type] = new StatsInstance(def);
         }
-        return null;
+    }
+
+    public StatsInstance GetStat<T>() where T : StatsDefinition
+    {
+        return stats.TryGetValue(typeof(T), out var stat) ? stat : null;
     }
 }

@@ -11,7 +11,7 @@ public class Detector : MonoBehaviour
 
     [Space]
     public float detectRadius = 10f;
-    public Action<GameObject> OnChangeTarget;
+    public event Action<GameObject> OnChangeTarget;
 
     [Space]
     public bool hasTarget;
@@ -54,11 +54,16 @@ public class Detector : MonoBehaviour
             OnChangeTarget?.Invoke(bestTarget);
 
         hasTarget = currentTarget;
+
+        GunManager.onToggleFire?.Invoke(hasTarget);
     }
 
     private void DetectChangeTarget(GameObject newTarget)
     {
         currentTarget = newTarget;
+        if (currentTarget == null)
+            return;
+
         currentTargetPoint = currentTarget.transform.position;
         currentTargetDistance = Vector3.Distance(transform.position, currentTargetPoint);
     }
