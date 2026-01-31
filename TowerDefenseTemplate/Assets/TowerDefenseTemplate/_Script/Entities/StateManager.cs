@@ -1,11 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(StatsManager))]
-public class StateManager : MonoBehaviour, ITargetable, IDamageable
+public class StateManager : MonoBehaviour, IDamageable
 {
     public StatsManager stats;
     public MeshRenderer meshRenderer;
-    public Material originalMaterial;
+    private Material originalMaterial;
     public float overrideMaterialPeriod = 0.1f;
 
     [Space]
@@ -15,7 +15,8 @@ public class StateManager : MonoBehaviour, ITargetable, IDamageable
     private void Awake()
     {
         stats = GetComponent<StatsManager>();
-        meshRenderer = GetComponent<MeshRenderer>();
+        if (TryGetComponent<MeshRenderer>(out MeshRenderer _meshRenderer))
+            meshRenderer = _meshRenderer;
         originalMaterial = meshRenderer.material;
 
         materialChanged = false;

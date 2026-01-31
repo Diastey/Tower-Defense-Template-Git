@@ -4,7 +4,7 @@ public class Rotator : MonoBehaviour
 {
     public Detector detector;
     public Quaternion originalOrientation;
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 20f;
     public bool isRotating;
 
     private void Awake()

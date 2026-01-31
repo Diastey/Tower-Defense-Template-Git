@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d41a41abe318124f8f6343e3d2d9c58, type: 3}
-  m_Name: Gun3
+  m_Script: {fileID: 11500000, guid: 871f742ea1fc87843bfd48c34c18420b, type: 3}
+  m_Name: TowerHealth
   m_EditorClassIdentifier: 
-  defaultValue: 10
-  bullet: {fileID: 4156078079595258866, guid: a3ffd4e51a44abb41b1a42712a2b42b9, type: 3}
-  fireFrequency: 1
+  defaultValue: 20

@@ -57,6 +57,32 @@ public class Detector : MonoBehaviour
 
         GunManager.onToggleFire?.Invoke(hasTarget);
     }
+    private void DetectTarget<T>()
+    {
+        GameObject bestTarget = null;
+        float bestTargetDistance = float.MaxValue;
+
+        Collider[] hit = Physics.OverlapSphere(transform.position, detectRadius);
+        foreach (Collider col in hit)
+        {
+            if (col.gameObject.TryGetComponent<T>(out T targetable))
+            {
+                float distanceBetween = Vector3.Distance(col.transform.position, transform.position);
+                if (distanceBetween < bestTargetDistance)
+                {
+                    bestTarget = col.gameObject;
+                    bestTargetDistance = distanceBetween;
+                }
+            }
+        }
+
+        if (bestTarget != currentTarget)
+            OnChangeTarget?.Invoke(bestTarget);
+
+        hasTarget = currentTarget;
+
+        GunManager.onToggleFire?.Invoke(hasTarget);
+    }
 
     private void DetectChangeTarget(GameObject newTarget)
     {

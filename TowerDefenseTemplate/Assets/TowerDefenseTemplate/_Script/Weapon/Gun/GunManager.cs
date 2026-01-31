@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 [RequireComponent(typeof(Detector))]
 public class GunManager : MonoBehaviour
@@ -12,7 +9,6 @@ public class GunManager : MonoBehaviour
     public StatsManager statsManager;
     public Transform firePoint;
     public List<EquipGun> initGuns = new List<EquipGun>();
-    public float energyRechargeRate = 0.1f;
     public float energyRechargePeriod = 2f;
 
     [Space]
@@ -68,16 +64,17 @@ public class GunManager : MonoBehaviour
     public void ToggleFire(bool on)
     {
         canFire = on;
-        if (!canFire)
-        {
-            ResetFire();
-        }
+        //if (!canFire)
+        //{
+        //    ResetFire();
+        //}
     }
 
     private void Update()
     {
         SwitchGunCheck();
 
+        fireCooldownTimer -= Time.deltaTime;
         energyRechargeTimer -= Time.deltaTime;
         rechargingEnergy = (energyRechargeTimer <= 0.0f);
 
@@ -89,7 +86,7 @@ public class GunManager : MonoBehaviour
 
         if (rechargingEnergy)
         {
-            energy.Modify(Time.deltaTime * energyRechargeRate);
+            energy.Modify(Time.deltaTime * ((Energy)energy.statsDef).rechargeRate);
 
             if (energyDeprecated && Mathf.Approximately(energy.currentValue, energy.maxValue))
             {
@@ -99,8 +96,6 @@ public class GunManager : MonoBehaviour
 
         if (canFire)
         {
-            fireCooldownTimer -= Time.deltaTime;
-
             if (fireCooldownTimer <= 0.0f)
                 InitiateFire();
         }

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TowerEnergy
   m_EditorClassIdentifier: 
   defaultValue: 10
+  rechargeRate: 5
