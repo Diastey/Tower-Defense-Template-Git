@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public Detector detector;
+    public Vector3 currentTargetPoint;
     public Quaternion originalOrientation;
     public float rotationSpeed = 20f;
     public bool isRotating;
 
     private void Awake()
     {
-        detector = GetComponent<Detector>();
         originalOrientation = transform.rotation;
     }
 
     private void Update()
     {
-        if (detector.hasTarget)
+        if (isRotating)
             RotateToTarget();
         else
             ResetRotation();
@@ -23,8 +22,7 @@ public class Rotator : MonoBehaviour
 
     private void RotateToTarget()
     {
-        isRotating = true;
-        Vector3 targetPosition = detector.currentTargetPoint;
+        Vector3 targetPosition = currentTargetPoint;
         Vector3 targetDirection = (targetPosition - transform.position).normalized;
         //Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, rotationSpeed * Time.deltaTime, 0.0f);
 
@@ -34,8 +32,6 @@ public class Rotator : MonoBehaviour
 
     private void ResetRotation()
     {
-        isRotating = false;
-
         transform.rotation = Quaternion.Slerp(transform.rotation, originalOrientation, rotationSpeed * Time.deltaTime);
     }
 }

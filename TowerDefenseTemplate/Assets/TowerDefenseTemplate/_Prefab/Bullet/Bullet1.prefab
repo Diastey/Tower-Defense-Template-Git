@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  projectileSpeed: 5
+  projectileSpeed: 20
   bulletLifeTime: 2
 --- !u!54 &7566981775916580226
 Rigidbody:

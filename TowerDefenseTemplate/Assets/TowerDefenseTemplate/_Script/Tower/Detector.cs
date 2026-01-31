@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rotator))]
 public class Detector : MonoBehaviour
@@ -14,7 +15,13 @@ public class Detector : MonoBehaviour
     public event Action<GameObject> OnChangeTarget;
 
     [Space]
-    public bool hasTarget;
+    private bool hasTarget;
+    private Rotator rotator;
+
+    private void Awake()
+    {
+        rotator = GetComponent<Rotator>();
+    }
 
     private void OnEnable()
     {
@@ -55,32 +62,11 @@ public class Detector : MonoBehaviour
 
         hasTarget = currentTarget;
 
-        GunManager.onToggleFire?.Invoke(hasTarget);
-    }
-    private void DetectTarget<T>()
-    {
-        GameObject bestTarget = null;
-        float bestTargetDistance = float.MaxValue;
-
-        Collider[] hit = Physics.OverlapSphere(transform.position, detectRadius);
-        foreach (Collider col in hit)
+        rotator.isRotating = hasTarget;
+        if (hasTarget)
         {
-            if (col.gameObject.TryGetComponent<T>(out T targetable))
-            {
-                float distanceBetween = Vector3.Distance(col.transform.position, transform.position);
-                if (distanceBetween < bestTargetDistance)
-                {
-                    bestTarget = col.gameObject;
-                    bestTargetDistance = distanceBetween;
-                }
-            }
+            rotator.currentTargetPoint = currentTargetPoint;
         }
-
-        if (bestTarget != currentTarget)
-            OnChangeTarget?.Invoke(bestTarget);
-
-        hasTarget = currentTarget;
-
         GunManager.onToggleFire?.Invoke(hasTarget);
     }
 
