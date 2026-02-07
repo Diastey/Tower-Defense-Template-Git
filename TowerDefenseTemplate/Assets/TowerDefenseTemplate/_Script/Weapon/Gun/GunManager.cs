@@ -44,7 +44,6 @@ public class GunManager : MonoBehaviour
         foreach (EquipGun guns in initGuns)
         {
             equippedGuns[guns.buttonName] = new Gun(guns.gunStats);
-            //equippedGuns.Add(new Gun(guns.gunStats));
         }
 
         currentGun = equippedGuns[initGuns[0].buttonName];
@@ -64,10 +63,6 @@ public class GunManager : MonoBehaviour
     public void ToggleFire(bool on)
     {
         canFire = on;
-        //if (!canFire)
-        //{
-        //    ResetFire();
-        //}
     }
 
     private void Update()

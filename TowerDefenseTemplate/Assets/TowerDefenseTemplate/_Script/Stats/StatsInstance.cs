@@ -12,9 +12,6 @@ public class StatsInstance
     public event Action OnValueChange;
     public event Action OnDeprecate;
 
-    //public event Action<StatsDefinition> OnValueChange;
-    //public event Action<StatsDefinition> OnDeprecate;
-
     public StatsInstance(StatsDefinition statsDef)
     {
         this.statsDef = statsDef;

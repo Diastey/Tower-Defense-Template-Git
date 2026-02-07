@@ -846,6 +846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2165016311120672965, guid: d104a600948b3e04dabe84f29c3ed246, type: 3}
+      propertyPath: statsss.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2790041063391750946, guid: d104a600948b3e04dabe84f29c3ed246, type: 3}
       propertyPath: m_Name
       value: Tower
