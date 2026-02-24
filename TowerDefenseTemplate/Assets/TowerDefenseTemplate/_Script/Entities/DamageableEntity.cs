@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(StatsManager))]
-public class StateManager : MonoBehaviour, IDamageable
+public class DamageableEntity : MonoBehaviour, IDamageable
 {
     public StatsManager stats;
     public MeshRenderer meshRenderer;

@@ -1,4 +1,4 @@
-public class Target : StateManager, ITargetable
+public class Target : DamageableEntity, ITargetable
 {
     
 }

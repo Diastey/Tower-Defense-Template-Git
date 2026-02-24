@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
     public IState currentState;
     public event Action<IState> OnStateChange;
@@ -14,6 +14,8 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(IState newState)
     {
+        Debug.Log(newState);
+
         if (currentState == newState)
             return;
 
@@ -22,15 +24,5 @@ public class StateMachine : MonoBehaviour
         currentState?.OnEnter();
 
         OnStateChange?.Invoke(currentState);
-    }
-
-    private void Update()
-    {
-        currentState?.FramesUpdate();
-    }
-
-    private void FixedUpdate()
-    {
-        currentState?.PhysicsUpdate();
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(Rotator))]
 public class Detector : MonoBehaviour
 {
+    public GunManager gunManager;
+
     public GameObject currentTarget;
     public Vector3 currentTargetPoint;
     public float currentTargetDistance;
@@ -21,6 +23,7 @@ public class Detector : MonoBehaviour
     private void Awake()
     {
         rotator = GetComponent<Rotator>();
+        gunManager = GetComponent<GunManager>();
     }
 
     private void OnEnable()
@@ -67,7 +70,7 @@ public class Detector : MonoBehaviour
         {
             rotator.currentTargetPoint = currentTargetPoint;
         }
-        GunManager.onToggleFire?.Invoke(hasTarget);
+        gunManager.onToggleFire?.Invoke(hasTarget);
     }
 
     private void DetectChangeTarget(GameObject newTarget)

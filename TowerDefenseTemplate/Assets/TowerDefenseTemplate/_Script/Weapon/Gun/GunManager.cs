@@ -9,32 +9,36 @@ public class GunManager : MonoBehaviour
     public StatsManager statsManager;
     public Transform firePoint;
     public List<EquipGun> initGuns = new List<EquipGun>();
-    public float energyRechargePeriod = 2f;
+    //public float energyRechargePeriod = 2f;
 
     [Space]
     public Gun currentGun;
     private Dictionary<string, Gun> equippedGuns = new Dictionary<string, Gun>();
 
     [Space]
-    public bool rechargingEnergy;
-    private bool energyDeprecated;
-    private bool canFire;
-    private float fireCooldownTimer;
-    public float energyRechargeTimer;
-    private StatsInstance energy;
+    public bool canFire;
+    public StatsInstance energy;
     public delegate void OnToggleFire(bool toggle);
-    public static OnToggleFire onToggleFire;
+    public OnToggleFire onToggleFire;
+    public delegate void OnFire();
+    public OnFire onFire;
 
-    //public static event Action<bool> OnToggleFire;
+    [Space]
+    public GunIdleState idleState;
+    public GunFiringState firingState;
+    public GunRecharingState recharingState;
+    private StateMachine stateMachine = new StateMachine();
 
     private void OnEnable()
     {
         onToggleFire += ToggleFire;
+        onFire += FireBullet;
     }
 
     private void OnDisable()
     {
         onToggleFire -= ToggleFire;
+        onFire -= FireBullet;
     }
 
     private void Awake()
@@ -47,13 +51,21 @@ public class GunManager : MonoBehaviour
         }
 
         currentGun = equippedGuns[initGuns[0].buttonName];
-        ResetFire();
     }
 
     private void Start()
     {
         energy = statsManager.GetStat<Energy>();
         energy.OnDeprecate += EnergyDeprecated;
+
+        idleState = ScriptableObject.CreateInstance<GunIdleState>();
+        firingState = ScriptableObject.CreateInstance<GunFiringState>();
+        recharingState = ScriptableObject.CreateInstance<GunRecharingState>();
+
+        idleState.Init(stateMachine, this);
+        firingState.Init(stateMachine, this);
+        recharingState.Init(stateMachine, this);
+        stateMachine.InitializeState(idleState);
     }
 
     private void OnDestroy()
@@ -63,55 +75,22 @@ public class GunManager : MonoBehaviour
     public void ToggleFire(bool on)
     {
         canFire = on;
+        //if (!canFire)
+        //{
+        //    ResetFire();
+        //}
     }
 
     private void Update()
     {
         SwitchGunCheck();
 
-        fireCooldownTimer -= Time.deltaTime;
-        energyRechargeTimer -= Time.deltaTime;
-        rechargingEnergy = (energyRechargeTimer <= 0.0f);
-
-        if (energyDeprecated)
-        {
-            rechargingEnergy = true;
-            canFire = false;
-        }
-
-        if (rechargingEnergy)
-        {
-            energy.Modify(Time.deltaTime * ((Energy)energy.statsDef).rechargeRate);
-
-            if (energyDeprecated && Mathf.Approximately(energy.currentValue, energy.maxValue))
-            {
-                energyDeprecated = false;
-            }
-        }
-
-        if (canFire)
-        {
-            if (fireCooldownTimer <= 0.0f)
-                InitiateFire();
-        }
-    }
-
-    private void InitiateFire()
-    {
-        energyRechargeTimer = energyRechargePeriod;
-        currentGun.FireBullet(firePoint);
-        energy.Modify(-currentGun.stats.defaultValue);
-        ResetFire();
-    }
-
-    private void ResetFire()
-    {
-        fireCooldownTimer = currentGun.stats.fireFrequency;
+        stateMachine.currentState.FramesUpdate();
     }
 
     public void EnergyDeprecated()
     {
-        energyDeprecated = true;
+        stateMachine.ChangeState(recharingState);
     }
 
     public void SwitchGunCheck()
@@ -124,6 +103,11 @@ public class GunManager : MonoBehaviour
                 Debug.Log("SWICH TO " + guns.Value.stats.name);
             }
         }
+    }
+
+    public void FireBullet()
+    {
+        currentGun.FireBullet(firePoint);
     }
 }
 
