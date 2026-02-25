@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BodyStates : States
+public abstract class BodyStates : StateBehavior
 {
 
 }

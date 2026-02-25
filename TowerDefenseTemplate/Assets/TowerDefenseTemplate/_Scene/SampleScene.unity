@@ -1238,31 +1238,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target
       objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: testDic._serializedList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: StringToFloatMap.SerializedKeys.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: StringToFloatMap.SerializedValues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedKeys.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedKeys.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedKeys.Array.data[2]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedValues.Array.data[0]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedValues.Array.data[1]'
+      value: -2.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547775978954206081, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
+      propertyPath: 'StringToFloatMap.SerializedValues.Array.data[2]'
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6785440608760268242, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8658735574761968062}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
---- !u!1 &8658735574761968061 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6785440608760268242, guid: f2703cdd0d5a0774ebd0c9e396dadb1c, type: 3}
-  m_PrefabInstance: {fileID: 8658735574761968060}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8658735574761968062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8658735574761968061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d1424ec5884a54dbb9d835b1663d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

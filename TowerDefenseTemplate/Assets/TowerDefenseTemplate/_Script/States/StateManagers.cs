@@ -4,7 +4,7 @@ public abstract class StateManagers : MonoBehaviour, IStateManager
 {
     protected readonly StateMachine stateMachine = new StateMachine();
 
-    public States initialState;
+    public StateBehavior initialState;
 
     private void OnEnable()
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class HeadStates : States
+public abstract class HeadStates : StateBehavior
 {
     
 }

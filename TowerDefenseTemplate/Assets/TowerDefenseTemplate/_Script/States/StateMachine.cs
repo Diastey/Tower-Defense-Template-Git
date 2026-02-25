@@ -14,7 +14,7 @@ public class StateMachine
 
     public void ChangeState(IState newState)
     {
-        Debug.Log(newState);
+        //Debug.Log(newState);
 
         if (currentState == newState)
             return;

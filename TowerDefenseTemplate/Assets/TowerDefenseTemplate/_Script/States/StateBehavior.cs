@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public abstract class States : ScriptableObject, IState
+public abstract class StateBehavior : ScriptableObject, IState
 {
+    public int stateID;
     public StateMachine stateMachine;
 
-    public States Init(StateMachine stateMachine)
+    public StateBehavior Init(StateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
 

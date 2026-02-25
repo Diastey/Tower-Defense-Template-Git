@@ -1,9 +1,9 @@
-public abstract class GunStates : States
+public abstract class GunStates : StateBehavior
 {
     protected GunManager gunManager;
     protected StatsInstance energy;
 
-    public States Init(StateMachine stateMachine, GunManager gunManager)
+    public StateBehavior Init(StateMachine stateMachine, GunManager gunManager)
     {
         this.stateMachine = stateMachine;
         this.gunManager = gunManager;
