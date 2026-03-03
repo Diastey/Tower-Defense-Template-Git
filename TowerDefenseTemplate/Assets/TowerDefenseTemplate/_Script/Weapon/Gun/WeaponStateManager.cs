@@ -2,13 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GM_Flags
+{
+    CanFire
+}
+
 [RequireComponent(typeof(Detector))]
-public class GunManager : MonoBehaviour
+public class WeaponStateManager : StateManagers
 {
     public Detector detector;
-    public StatsManager statsManager;
+    //public StatDefinition energyStatsIDRef;
     public Transform firePoint;
     public List<EquipGun> initGuns = new List<EquipGun>();
+    public BaseIdentifier weaponEnergyIdentifier;
     //public float energyRechargePeriod = 2f;
 
     [Space]
@@ -16,18 +22,17 @@ public class GunManager : MonoBehaviour
     private Dictionary<string, Gun> equippedGuns = new Dictionary<string, Gun>();
 
     [Space]
-    public bool canFire;
     public StatsInstance energy;
     public delegate void OnToggleFire(bool toggle);
     public OnToggleFire onToggleFire;
     public delegate void OnFire();
     public OnFire onFire;
 
-    [Space]
-    public GunIdleState idleState;
-    public GunFiringState firingState;
-    public GunRecharingState recharingState;
-    private StateMachine stateMachine = new StateMachine();
+    //[Space]
+    //public CooldownState idleState;
+    //public FireProjectileState firingState;
+    //public RecharingState recharingState;
+    //private StateMachine stateMachine = new StateMachine();
 
     private void OnEnable()
     {
@@ -51,21 +56,23 @@ public class GunManager : MonoBehaviour
         }
 
         currentGun = equippedGuns[initGuns[0].buttonName];
+
+        flags.Add(false);
     }
 
     private void Start()
     {
-        energy = statsManager.GetStat<Energy>();
+        energy = statsManager.GetStatByID(weaponEnergyIdentifier.identifierID);
         energy.OnDeprecate += EnergyDeprecated;
+        InitialStateMachine();
+        //idleState = ScriptableObject.CreateInstance<CooldownState>();
+        //firingState = ScriptableObject.CreateInstance<FireProjectileState>();
+        //recharingState = ScriptableObject.CreateInstance<RecharingState>();
 
-        idleState = ScriptableObject.CreateInstance<GunIdleState>();
-        firingState = ScriptableObject.CreateInstance<GunFiringState>();
-        recharingState = ScriptableObject.CreateInstance<GunRecharingState>();
-
-        idleState.Init(stateMachine, this);
-        firingState.Init(stateMachine, this);
-        recharingState.Init(stateMachine, this);
-        stateMachine.InitializeState(idleState);
+        //idleState.Init(stateMachine, this);
+        //firingState.Init(stateMachine, this);
+        //recharingState.Init(stateMachine, this);
+        //stateMachine.InitializeState(idleState);
     }
 
     private void OnDestroy()
@@ -74,7 +81,7 @@ public class GunManager : MonoBehaviour
     }
     public void ToggleFire(bool on)
     {
-        canFire = on;
+        flags[(int)GM_Flags.CanFire] = on;
         //if (!canFire)
         //{
         //    ResetFire();
@@ -84,13 +91,13 @@ public class GunManager : MonoBehaviour
     private void Update()
     {
         SwitchGunCheck();
-
-        stateMachine.currentState.FramesUpdate();
+        //Debug.Log(stateMachine.currentState);
+        stateMachine.currentState.FramesUpdate(this, stateMachine);
     }
 
     public void EnergyDeprecated()
     {
-        stateMachine.ChangeState(recharingState);
+        stateMachine.ChangeState(StateEnum.RECHARGING, this, stateMachine);
     }
 
     public void SwitchGunCheck()

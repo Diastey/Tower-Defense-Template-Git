@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197cdb75b90226745be2d8f5d907dbb9, type: 3}
-  m_Name: TowerEnergy
+  m_Script: {fileID: 11500000, guid: 344433b55a29ff84191042c88c4d3e67, type: 3}
+  m_Name: IdleState
   m_EditorClassIdentifier: 
-  defaultValue: 10
-  rechargeRate: 5
+  stateID: 0
+  refStats: 01000000

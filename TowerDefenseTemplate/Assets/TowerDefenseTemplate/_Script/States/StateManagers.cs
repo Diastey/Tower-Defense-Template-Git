@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class StateManagers : MonoBehaviour, IStateManager
 {
-    protected readonly StateMachine stateMachine = new StateMachine();
+    protected StateMachine stateMachine;
 
-    public StateBehavior initialState;
+    public List<StateBehavior> states;
+    public StatsManager statsManager;
+    public List<bool> flags = new List<bool>();
 
     private void OnEnable()
     {
@@ -13,6 +16,16 @@ public abstract class StateManagers : MonoBehaviour, IStateManager
 
     public void InitialStateMachine()
     {
-        stateMachine.InitializeState(initialState);
+        stateMachine = new StateMachine(this);
+        for (int i = 0; i < states.Count; i++)
+        {
+            stateMachine.AddState(states[i].stateID, states[i]);
+        }
+        stateMachine.InitializeState(StateEnum.IDLE, this, stateMachine);
+    }
+
+    public StatsInstance GetStatsByID(int identifierID)
+    {
+        return statsManager.GetStatByID(identifierID);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(Rotator))]
 public class Detector : MonoBehaviour
 {
-    public GunManager gunManager;
+    public WeaponStateManager gunManager;
 
     public GameObject currentTarget;
     public Vector3 currentTargetPoint;
@@ -23,7 +23,7 @@ public class Detector : MonoBehaviour
     private void Awake()
     {
         rotator = GetComponent<Rotator>();
-        gunManager = GetComponent<GunManager>();
+        gunManager = GetComponent<WeaponStateManager>();
     }
 
     private void OnEnable()

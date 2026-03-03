@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class StatsInstance
 {
-    public StatsDefinition statsDef;
+    public StatDefinition statsDef;
 
     public float currentValue;
     public float maxValue;
@@ -12,7 +12,7 @@ public class StatsInstance
     public event Action OnValueChange;
     public event Action OnDeprecate;
 
-    public StatsInstance(StatsDefinition statsDef)
+    public StatsInstance(StatDefinition statsDef)
     {
         this.statsDef = statsDef;
         maxValue = statsDef.defaultValue;
@@ -30,4 +30,12 @@ public class StatsInstance
         if (currentValue <= 0)
             OnDeprecate?.Invoke();
     }
+
+    //public StatsInstance CheckStatsID(int statsID)
+    //{
+    //    if (statsID == statsDef.statsID)
+    //        return this;
+    //    else
+    //        return null;
+    //}
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UIValueBar : MonoBehaviour
 {
     public StatsManager statsManager;
-    public bool isHealth;
+    public StatDefinition refStatIdentifier;
 
     private StatsInstance refStat;
     private float maxValue;
@@ -17,14 +17,7 @@ public class UIValueBar : MonoBehaviour
 
     private void Start()
     {
-        if (isHealth)
-        {
-            refStat = statsManager.GetStat<Health>();
-        }
-        else
-        {
-            refStat = statsManager.GetStat<Energy>();
-        }
+        refStat = statsManager.GetStatByID(refStatIdentifier.identifierID);
 
         maxValue = refStat.maxValue;
         scrollbar.size = refStat.currentValue / maxValue;

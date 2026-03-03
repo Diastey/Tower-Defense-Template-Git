@@ -1,7 +1,8 @@
 public interface IState
 {
-    void OnEnter();
-    void OnExit();
-    void PhysicsUpdate();
-    void FramesUpdate();
+    void OnEnter(StateManagers stateManager, StateMachine stateMachine);
+    void OnExit(StateManagers stateManager, StateMachine stateMachine);
+    void PhysicsUpdate(StateManagers stateManager, StateMachine stateMachine);
+    void FramesUpdate(StateManagers stateManager, StateMachine stateMachine);
+    void OnCheck(StateManagers stateManager, StateMachine stateMachine);
 }

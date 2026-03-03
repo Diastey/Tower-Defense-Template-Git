@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50f1a5f3b43a4a4395a2d5686a2f7b5, type: 3}
-  m_Name: GunFiringState
+  m_Script: {fileID: 11500000, guid: 197cdb75b90226745be2d8f5d907dbb9, type: 3}
+  m_Name: TowerEnergy
   m_EditorClassIdentifier: 
-  energyRechargePeriod: 2
-  fireCooldownTimer: 0
-  energyRechargeTimer: 0
+  statsID: 1
+  defaultValue: 10
+  rechargeRate: 5
