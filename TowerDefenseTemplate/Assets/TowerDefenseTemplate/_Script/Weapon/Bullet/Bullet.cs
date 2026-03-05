@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage;
-    public float projectileSpeed;
-    public float bulletLifeTime = 2f;
+    public StatDefinition damage;
+    public StatDefinition projectileSpeed;
+    public StatDefinition bulletLifeTime;
 
     private Material materialToOverride;
     private float lifeTimeTimer = 0.0f;
@@ -16,12 +16,12 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        lifeTimeTimer = bulletLifeTime;
+        lifeTimeTimer = bulletLifeTime.defaultValue;
     }
 
     private void Update()
     {
-        transform.position += transform.forward * projectileSpeed * Time.deltaTime;
+        transform.position += transform.forward * projectileSpeed.defaultValue * Time.deltaTime;
 
         lifeTimeTimer -= Time.deltaTime;
         if (lifeTimeTimer <= 0)
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget(IDamageable target)
     {
-        DamageInfo damageInfo = new DamageInfo(damage, materialToOverride);
+        DamageInfo damageInfo = new DamageInfo(damage.defaultValue, materialToOverride);
         target.TakeDamage(damageInfo);
         Destroy(gameObject);
     }

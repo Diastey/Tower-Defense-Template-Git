@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5119c77258607346aa5f2edb7a69345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  projectileSpeed: 20
-  bulletLifeTime: 2
+  damage: {fileID: 11400000, guid: 8c5c4df5126f6ba488518b26f1e5f469, type: 2}
+  projectileSpeed: {fileID: 11400000, guid: 2711a9de111ef654e82b3dee26bf53c9, type: 2}
+  bulletLifeTime: {fileID: 11400000, guid: 25654abd3e9f88a4c955b40123ea0d73, type: 2}
 --- !u!54 &7566981775916580226
 Rigidbody:
   m_ObjectHideFlags: 0

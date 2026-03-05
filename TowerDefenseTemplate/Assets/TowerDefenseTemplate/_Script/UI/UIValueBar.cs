@@ -17,7 +17,7 @@ public class UIValueBar : MonoBehaviour
 
     private void Start()
     {
-        refStat = statsManager.GetStatByID(refStatIdentifier.identifierID);
+        refStat = statsManager.GetStatByIdentifierID(refStatIdentifier.GetDataIdentifierID());
 
         maxValue = refStat.maxValue;
         scrollbar.size = refStat.currentValue / maxValue;

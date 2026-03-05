@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b23b2713e7e5f4dac139d7760b52d8, type: 3}
+  m_Name: Weapon 2
+  m_EditorClassIdentifier: 
+  identifierID: {fileID: 11400000, guid: 6ca44cd83364e1b4e8e25370e01e5404, type: 2}
+  instanceID: 2
+  bullet: {fileID: 11400000, guid: e5663810b61da684ca658b9c9b3c61fd, type: 2}
+  energyCost: {fileID: 11400000, guid: d665d4022d0a74b4f81299bea7e4918f, type: 2}
+  fireFrequency: {fileID: 11400000, guid: 798fcef092d8d9548abdc7fe54dfc501, type: 2}

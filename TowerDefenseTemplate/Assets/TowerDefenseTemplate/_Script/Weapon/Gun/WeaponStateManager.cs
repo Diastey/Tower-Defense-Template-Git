@@ -14,7 +14,7 @@ public class WeaponStateManager : StateManagers
     //public StatDefinition energyStatsIDRef;
     public Transform firePoint;
     public List<EquipGun> initGuns = new List<EquipGun>();
-    public BaseIdentifier weaponEnergyIdentifier;
+    public BaseData weaponEnergyIdentifier;
     //public float energyRechargePeriod = 2f;
 
     [Space]
@@ -57,12 +57,12 @@ public class WeaponStateManager : StateManagers
 
         currentGun = equippedGuns[initGuns[0].buttonName];
 
-        flags.Add(false);
+        //flags.Add(false);
     }
 
     private void Start()
     {
-        energy = statsManager.GetStatByID(weaponEnergyIdentifier.identifierID);
+        energy = statsManager.GetStatByIdentifierID(weaponEnergyIdentifier.GetDataIdentifierID());
         energy.OnDeprecate += EnergyDeprecated;
         InitialStateMachine();
         //idleState = ScriptableObject.CreateInstance<CooldownState>();
@@ -81,26 +81,19 @@ public class WeaponStateManager : StateManagers
     }
     public void ToggleFire(bool on)
     {
-        flags[(int)GM_Flags.CanFire] = on;
+        //flags[(int)GM_Flags.CanFire] = on;
         //if (!canFire)
         //{
         //    ResetFire();
         //}
     }
 
-    private void Update()
-    {
-        SwitchGunCheck();
-        //Debug.Log(stateMachine.currentState);
-        stateMachine.currentState.FramesUpdate(this, stateMachine);
-    }
-
     public void EnergyDeprecated()
     {
-        stateMachine.ChangeState(StateEnum.RECHARGING, this, stateMachine);
+        //stateMachine.ChangeState(StateEnum.RECHARGING);
     }
 
-    public void SwitchGunCheck()
+    public override void InputCheck()
     {
         foreach (KeyValuePair<string, Gun> guns in equippedGuns)
         {
@@ -122,5 +115,5 @@ public class WeaponStateManager : StateManagers
 public class EquipGun
 {
     public string buttonName;
-    public GunStats gunStats;
+    public WeaponStat gunStats;
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Gun
 {
-    public GunStats stats;
+    public WeaponStat stats;
 
-    public Gun(GunStats stats)
+    public Gun(WeaponStat stats)
     {
         this.stats = stats;
     }

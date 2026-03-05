@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f651b2e9702a7cf45a2d8a7c7d536591, type: 3}
+  m_Name: canFire
+  m_EditorClassIdentifier: 
+  identifierID: {fileID: 11400000, guid: 0ca6b20d4d761db4cb96f154e2d351d6, type: 2}
+  instanceID: 0
+  defaultStatus: 0

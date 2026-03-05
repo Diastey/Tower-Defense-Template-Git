@@ -10,7 +10,7 @@ public class Pathfind : MonoBehaviour
     public float distanceThreshold = 0.1f;
     public float walkSpeed = 2f;
 
-    public SerializableDictionary<string, int> StringToFloatMap;
+    //public SerializableDictionary<string, int> StringToFloatMap;
 
     private void Awake()
     {

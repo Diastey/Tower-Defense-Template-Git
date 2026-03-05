@@ -7,7 +7,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     public MeshRenderer meshRenderer;
     private Material originalMaterial;
     public float overrideMaterialPeriod = 0.1f;
-    public BaseIdentifier healthStat;
+    public BaseData healthStat;
 
     [Space]
     private bool materialChanged;
@@ -25,7 +25,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        stats.GetStatByID(healthStat.identifierID).OnDeprecate += Death;
+        stats.GetStatByIdentifierID(healthStat.GetDataIdentifierID()).OnDeprecate += Death;
     }
 
     private void Update()
@@ -46,12 +46,12 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
     private void OnDestroy()
     {
-        stats.GetStatByID(healthStat.identifierID).OnDeprecate -= Death;
+        stats.GetStatByIdentifierID(healthStat.GetDataIdentifierID()).OnDeprecate -= Death;
     }
 
     public void TakeDamage(DamageInfo damageInfo)
     {
-        stats.GetStatByID(healthStat.identifierID).Modify(-damageInfo.damage);
+        stats.GetStatByIdentifierID(healthStat.GetDataIdentifierID()).Modify(-damageInfo.damage);
         ChangeColor(damageInfo.overrideMaterial);
     }
 
