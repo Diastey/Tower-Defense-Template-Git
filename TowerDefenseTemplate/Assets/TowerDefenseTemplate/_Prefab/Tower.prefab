@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.75}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8459843078896379956}
@@ -237,7 +237,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8585503317172270931}
@@ -343,43 +343,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440cbcdd021aeaa4b898ae6b4e95bce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: {fileID: 0}
-  states: []
-  statsManager: {fileID: 0}
+  initialState: {fileID: 11400000, guid: 33d09fccfa6ebe542a892da532463758, type: 2}
+  states:
+  - {fileID: 11400000, guid: 33d09fccfa6ebe542a892da532463758, type: 2}
+  - {fileID: 11400000, guid: 5554187bbfa2fa7418ce3cd350cc63f4, type: 2}
+  - {fileID: 11400000, guid: 8de6e4b7180fbff4ca620988506a52fb, type: 2}
+  - {fileID: 11400000, guid: 5571075a36ab7524087a6081fec05177, type: 2}
+  statsManager: {fileID: 7552032379169260458}
   flagsList:
   - {fileID: 11400000, guid: 4530e9529fb64ce47ab2d48ff8a89f0c, type: 2}
   offsetTransformList:
   - {fileID: 11400000, guid: df3097b55225fdf449e70966b237d27b, type: 2}
   gameObjectList:
   - {fileID: 11400000, guid: 0c2e59276ccefe840a91f62ae7c126b6, type: 2}
-  offsetTransforms:
-    SerializedKeys: 
-    SerializedValues: []
-  gameObjects:
-    SerializedKeys: 
-    SerializedValues: []
-  runtimeFlags:
-    SerializedKeys: 
-    SerializedValues: 
-  runtimeTimers:
-    SerializedKeys: 
-    SerializedValues: []
   detector: {fileID: 6976217889182401463}
-  firePoint: {fileID: 5678027121334509976}
-  initGuns:
-  - buttonName: 1
-    gunStats: {fileID: 11400000, guid: 3647d50a240bad64ea51e98c682ee17f, type: 2}
-  - buttonName: 2
-    gunStats: {fileID: 11400000, guid: 07c5c97d93b05e744a14f03841cb80ba, type: 2}
-  - buttonName: 3
-    gunStats: {fileID: 11400000, guid: 772be191189e9a046aaadf45f62521c6, type: 2}
-  weaponEnergyIdentifier: {fileID: 11400000, guid: 2a1542cf07bfe794a8087b4d4302d4b5, type: 2}
-  currentGun: {fileID: 0}
-  energy:
-    statsDef: {fileID: 0}
-    instanceId: 0
-    currentValue: 0
-    maxValue: 0
+  deprecatedState: {fileID: 11400000, guid: 8de6e4b7180fbff4ca620988506a52fb, type: 2}
 --- !u!114 &7552032379169260458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +374,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2a1542cf07bfe794a8087b4d4302d4b5, type: 2}
   - {fileID: 11400000, guid: 7dfdbcba75ee9b5498902e350a377538, type: 2}
   - {fileID: 11400000, guid: b3315d9c115df154087baf9d358533d3, type: 2}
+  - {fileID: 11400000, guid: b64dfe5588737c74191764b3335a3e84, type: 2}
 --- !u!1 &2790041063391750946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2931f4e2525e7d448983d42722a6097e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsManager: {fileID: 0}
+  statsManager: {fileID: 7552032379169260458}
   refStatIdentifier: {fileID: 11400000, guid: 2a1542cf07bfe794a8087b4d4302d4b5, type: 2}
 --- !u!1 &8321886947923580588
 GameObject:

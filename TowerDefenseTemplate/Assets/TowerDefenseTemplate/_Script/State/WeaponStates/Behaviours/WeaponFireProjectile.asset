@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22ca3d016ed68449bf01f19870c9cb9, type: 3}
+  m_Name: WeaponFireProjectile
+  m_EditorClassIdentifier: 
+  identifierID: {fileID: 11400000, guid: a1e0b9ad063f7634d898caf27290b383, type: 2}
+  instanceID: 7
+  projectile: {fileID: 11400000, guid: 0c2e59276ccefe840a91f62ae7c126b6, type: 2}
+  offsetPosition: {fileID: 11400000, guid: df3097b55225fdf449e70966b237d27b, type: 2}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7705135001705743509}
   - component: {fileID: 2865895796853753780}
   - component: {fileID: 7566981775916580226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

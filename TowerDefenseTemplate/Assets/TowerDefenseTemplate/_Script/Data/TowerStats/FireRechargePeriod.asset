@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FireRechargePeriod
   m_EditorClassIdentifier: 
   identifierID: {fileID: 11400000, guid: b17c6c93a40fdd74aaac4addfb3fc0f8, type: 2}
-  instanceID: 0
+  instanceID: 1
   defaultValue: 2

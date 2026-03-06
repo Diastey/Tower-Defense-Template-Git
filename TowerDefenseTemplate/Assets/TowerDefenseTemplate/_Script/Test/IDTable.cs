@@ -11,6 +11,7 @@ public static class IDTable
     public const int ENERGY_COST = 1100;
     public const int FIRE_FREQUENCY = 1200;
     public const int ENERGY_RECHARGE_PERIOD = 1300;
+    public const int ENERGY_REGEN_RATE = 1400;
     public const int DAMAGE = 2100;
     public const int LIFE_TIME = 2200;
     public const int SPEED = 2300;
@@ -35,4 +36,7 @@ public static class IDTable
      * States
      */
     public const int STATES = 1000;
+    public const int STATES_BEHAVIOUR = 2000;
+    public const int STATES_CHECK_CONDITION = 3000;
+    public const int STATES_TRANSITION = 4000;
 }

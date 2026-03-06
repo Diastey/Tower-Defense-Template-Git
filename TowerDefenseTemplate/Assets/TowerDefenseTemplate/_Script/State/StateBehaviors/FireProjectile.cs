@@ -7,6 +7,10 @@ public class FireProjectile : StateBehaviour
     public OffsetPositionDefinition offsetPosition;
     public override void RunStateBehaviour(StateMachine stateMachine)
     {
-        GameObject.Instantiate(projectile, stateMachine.stateManager.transform.position + offsetPosition.offsetPosition, stateMachine.stateManager.transform.rotation);
+        Instantiate(
+            projectile.defaultPrefab,
+            stateMachine.stateManager.transform.TransformPoint(offsetPosition.offsetPosition),
+            stateMachine.stateManager.transform.rotation
+        );
     }
 }

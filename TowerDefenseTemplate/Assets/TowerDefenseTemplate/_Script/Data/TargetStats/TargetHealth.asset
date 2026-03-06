@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifierID: {fileID: 11400000, guid: 3c2584239dba339448c9cb48152ce470, type: 2}
   instanceID: 1
-  defaultValue: 100
+  defaultValue: 10

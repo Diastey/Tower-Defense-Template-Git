@@ -56,15 +56,15 @@ public abstract class StateManagers : MonoBehaviour, IStateManager
         stateMachine = new StateMachine(this);
         for (int i = 0; i < states.Count; i++)
         {
-            stateMachine.AddState(states[i].GetDataIdentifierID(), states[i]);
+            stateMachine.AddState(states[i].GetDataID(), states[i]);
         }
         if (initialState)
-            stateMachine.InitializeState(initialState.GetDataIdentifierID());
+            stateMachine.InitializeState(initialState.GetDataID());
     }
     private void Update()
     {
         InputCheck();
-        //stateMachine.StateMachineUpdate();
+        stateMachine.StateMachineUpdate();
     }
 
     public virtual void InputCheck() { }

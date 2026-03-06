@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "STC", menuName = "States/NewSTC")]
-public abstract class StateTransitionCheck : BaseData, IStateTransitionCheck
+public class StateTransitionCheck : BaseData, IStateTransitionCheck
 {
     public State transitionState;
     public List<CheckCondition> checkConditions;
@@ -26,6 +26,6 @@ public abstract class StateTransitionCheck : BaseData, IStateTransitionCheck
 
     public int GetTransitionStateID()
     {
-        return transitionState.GetDataIdentifierID();
+        return transitionState.GetDataID();
     }
 }

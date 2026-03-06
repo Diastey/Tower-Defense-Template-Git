@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15dba467730b1e46b0013d8467768dd, type: 3}
-  m_Name: EnergyRegenMax
+  m_Script: {fileID: 11500000, guid: abf7fe597145f11408c1235051b432e6, type: 3}
+  m_Name: FireCDTimerCheck
   m_EditorClassIdentifier: 
-  identifierID: {fileID: 11400000, guid: 82b632cb998ec9544908c501d0e3206f, type: 2}
-  instanceID: 0
+  identifierID: {fileID: 11400000, guid: d65ab861360ec88488ec2d4e510c428d, type: 2}
+  instanceID: 5
   neededStatus: 1
-  statToCheck: {fileID: 0}
+  timer: {fileID: 11400000, guid: f8561adea496d84478fed3952b169ce8, type: 2}

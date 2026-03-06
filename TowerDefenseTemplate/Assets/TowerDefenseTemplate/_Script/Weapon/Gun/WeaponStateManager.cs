@@ -11,6 +11,7 @@ using UnityEngine;
 public class WeaponStateManager : StateManagers
 {
     public Detector detector;
+    public State deprecatedState;
     //public StatDefinition energyStatsIDRef;
     //public Transform firePoint;
     //public List<EquipGun> initGuns = new List<EquipGun>();
@@ -87,7 +88,7 @@ public class WeaponStateManager : StateManagers
 
     public void EnergyDeprecated()
     {
-        //stateMachine.ChangeState(StateEnum.RECHARGING);
+        stateMachine.ChangeState(deprecatedState.GetDataID());
     }
 
     public override void InputCheck()
