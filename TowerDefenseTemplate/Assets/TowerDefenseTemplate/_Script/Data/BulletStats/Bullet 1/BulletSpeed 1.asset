@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec61c0d2254653429c7970faf39da36, type: 3}
   m_Name: BulletSpeed 1
   m_EditorClassIdentifier: 
-  identifierID: 2301
+  identifierID: {fileID: 11400000, guid: 78dfa300e2a512f4ca8e905f050f494d, type: 2}
+  instanceID: 1
   defaultValue: 20

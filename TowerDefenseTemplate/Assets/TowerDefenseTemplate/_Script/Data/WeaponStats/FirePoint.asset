@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0780ef1cef4e2c14c9da8267358e6e3b, type: 3}
+  m_Name: FirePoint
+  m_EditorClassIdentifier: 
+  identifierID: {fileID: 11400000, guid: 3a96782fc447ba64098af774632e7b95, type: 2}
+  instanceID: 0
+  offsetPosition: {x: 0, y: 0, z: 0.75}

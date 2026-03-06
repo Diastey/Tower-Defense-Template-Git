@@ -5,9 +5,9 @@
 //{
 //    //public override void FramesUpdate(StateManagers stateManager, StateMachine stateMachine)
 //    //{
-//    //    //stateManager.GetStatsByID(StatsEnum.ENERGY).Modify(Time.deltaTime * ((Energy)stateManager.GetStatsByID(StatsEnum.ENERGY).statsDef).rechargeRate);
+//    //    //stateManager.GetStatsByIdentifierID(StatsEnum.ENERGY).Modify(Time.deltaTime * ((Energy)stateManager.GetStatsByIdentifierID(StatsEnum.ENERGY).statsDef).rechargeRate);
 
-//    //    //if (Mathf.Approximately(stateManager.GetStatsByID(StatsEnum.ENERGY).currentValue, stateManager.GetStatsByID(StatsEnum.ENERGY).maxValue))
+//    //    //if (Mathf.Approximately(stateManager.GetStatsByIdentifierID(StatsEnum.ENERGY).currentValue, stateManager.GetStatsByIdentifierID(StatsEnum.ENERGY).maxValue))
 //    //    //{
 //    //    //    if (stateManager.flags[(int)GM_Flags.CanFire])
 //    //    //        stateMachine.ChangeState(StateEnum.ATTACK, stateManager, stateMachine);

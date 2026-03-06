@@ -15,9 +15,6 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        stats = GetComponent<StatsManager>();
-        if (TryGetComponent<MeshRenderer>(out MeshRenderer _meshRenderer))
-            meshRenderer = _meshRenderer;
         originalMaterial = meshRenderer.material;
 
         materialChanged = false;

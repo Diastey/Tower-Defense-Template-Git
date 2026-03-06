@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec61c0d2254653429c7970faf39da36, type: 3}
   m_Name: BulletLifeTime 3
   m_EditorClassIdentifier: 
-  identifierID: 2203
+  identifierID: {fileID: 11400000, guid: 83b021ab8b8acdc4e91504702487134c, type: 2}
+  instanceID: 3
   defaultValue: 2

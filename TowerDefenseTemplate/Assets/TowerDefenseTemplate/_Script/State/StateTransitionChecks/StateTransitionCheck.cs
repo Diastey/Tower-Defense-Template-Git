@@ -15,6 +15,10 @@ public abstract class StateTransitionCheck : BaseData, IStateTransitionCheck
             {
                 conditionCheckCount++;
             }
+            else
+            {
+                return false;
+            }
         }
 
         return conditionCheckCount == checkConditions.Count;

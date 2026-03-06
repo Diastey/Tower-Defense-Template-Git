@@ -18,7 +18,7 @@ public class StatsManager : MonoBehaviour
         {
 
             if (!stats.ContainsKey(def.GetDataIdentifierID()))
-                stats.Add(def.GetInstanceID(), new Dictionary<int, StatsInstance>());
+                stats.Add(def.GetDataIdentifierID(), new Dictionary<int, StatsInstance>());
 
             stats[def.GetDataIdentifierID()].Add(def.GetDataInstanceID(), new StatsInstance(def));
 
@@ -43,8 +43,6 @@ public class StatsManager : MonoBehaviour
     {
         int instanceID = dataID % IDTable.INSTANCE_MODULUS;
         int identifierID = dataID - instanceID;
-        return stats.TryGetValue(identifierID, out Dictionary<int, StatsInstance> statIdentifier) ?
-            statIdentifier.TryGetValue(instanceID, out var stat) ? stat : null
-            : null;
+        return GetStatByInstanceID(identifierID, instanceID);
     }
 }

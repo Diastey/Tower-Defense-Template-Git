@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsManager: {fileID: 8386291443598426852}
-  isHealth: 0
+  refStatIdentifier: {fileID: 0}
 --- !u!1 &4143311809960850378
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsManager: {fileID: 8386291443598426852}
-  isHealth: 1
+  refStatIdentifier: {fileID: 0}
 --- !u!1 &5911581748273008371
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,9 +583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d5afd12141c5643a657d3cd615f419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  stats: {fileID: 8386291443598426852}
+  meshRenderer: {fileID: 3344305812884649045}
   overrideMaterialPeriod: 0.1
+  healthStat: {fileID: 11400000, guid: b7731027ccb3fc94db3a71f92ba62e2e, type: 2}
 --- !u!114 &8386291443598426852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,8 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsList:
-  - {fileID: 11400000, guid: f8b86b43922d9694ca16d10b3cefc3d7, type: 2}
-  - {fileID: 11400000, guid: 32f58f9d574b052499d490cc434fef63, type: 2}
+  - {fileID: 11400000, guid: b7731027ccb3fc94db3a71f92ba62e2e, type: 2}
 --- !u!54 &7251906071928344621
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 11400000, guid: becf1e3cbfa956c44afa56fb48bee31f, type: 2}
-  rotator: {fileID: 0}
+  rotator: {fileID: 1545375348499604697}
   currentDestination: {x: 0, y: 0, z: 0}
   currentPointIndex: 0
   distanceThreshold: 0.1

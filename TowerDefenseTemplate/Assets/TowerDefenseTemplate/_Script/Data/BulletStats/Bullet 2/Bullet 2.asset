@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b7d1894a0d6ec48991475a2b0dc9b2, type: 3}
   m_Name: Bullet 2
   m_EditorClassIdentifier: 
-  identifierID: 2002
+  identifierID: {fileID: 11400000, guid: 8b1c5f631be6d12428e32e718bc2ee8a, type: 2}
+  instanceID: 2
   defaultPrefab: {fileID: 4156078079595258866, guid: fd96ca6b4827498439caef6c97772da4, type: 3}

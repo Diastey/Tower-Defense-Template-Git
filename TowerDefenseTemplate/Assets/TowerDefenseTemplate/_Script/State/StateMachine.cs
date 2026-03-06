@@ -49,6 +49,8 @@ public class StateMachine
     public void ChangeState(int stateID)
     {
         //Debug.Log(newState);
+        if (!stateMap.ContainsKey(stateID))
+            return;
 
         if (currentState == stateMap[stateID])
             return;

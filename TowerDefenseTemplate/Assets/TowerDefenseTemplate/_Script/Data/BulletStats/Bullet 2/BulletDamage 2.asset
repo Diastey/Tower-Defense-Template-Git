@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec61c0d2254653429c7970faf39da36, type: 3}
   m_Name: BulletDamage 2
   m_EditorClassIdentifier: 
-  identifierID: 2102
+  identifierID: {fileID: 11400000, guid: e1f007ca9519d3e469c3299481a914b0, type: 2}
+  instanceID: 2
   defaultValue: 1

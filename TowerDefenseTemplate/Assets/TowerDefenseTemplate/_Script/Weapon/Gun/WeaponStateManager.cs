@@ -2,27 +2,27 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GM_Flags
-{
-    CanFire
-}
+//public enum GM_Flags
+//{
+//    CanFire
+//}
 
 [RequireComponent(typeof(Detector))]
 public class WeaponStateManager : StateManagers
 {
     public Detector detector;
     //public StatDefinition energyStatsIDRef;
-    public Transform firePoint;
-    public List<EquipGun> initGuns = new List<EquipGun>();
-    public BaseData weaponEnergyIdentifier;
+    //public Transform firePoint;
+    //public List<EquipGun> initGuns = new List<EquipGun>();
+    //public BaseData weaponEnergyIdentifier;
     //public float energyRechargePeriod = 2f;
 
-    [Space]
-    public Gun currentGun;
-    private Dictionary<string, Gun> equippedGuns = new Dictionary<string, Gun>();
+    //[Space]
+    //public WeaponStat currentGun;
+    //private Dictionary<string, WeaponStat> equippedGuns = new Dictionary<string, WeaponStat>();
 
     [Space]
-    public StatsInstance energy;
+    private StatsInstance energy;
     public delegate void OnToggleFire(bool toggle);
     public OnToggleFire onToggleFire;
     public delegate void OnFire();
@@ -37,32 +37,29 @@ public class WeaponStateManager : StateManagers
     private void OnEnable()
     {
         onToggleFire += ToggleFire;
-        onFire += FireBullet;
+        //onFire += FireBullet;
     }
 
     private void OnDisable()
     {
         onToggleFire -= ToggleFire;
-        onFire -= FireBullet;
+        //onFire -= FireBullet;
     }
-
-    private void Awake()
+    public override void AwakeFunctions()
     {
         detector = GetComponent<Detector>();
 
-        foreach (EquipGun guns in initGuns)
-        {
-            equippedGuns[guns.buttonName] = new Gun(guns.gunStats);
-        }
+        //foreach (EquipGun guns in initGuns)
+        //{
+        //    equippedGuns[guns.buttonName] = guns.gunStats;
+        //}
 
-        currentGun = equippedGuns[initGuns[0].buttonName];
-
-        //flags.Add(false);
+        //currentGun = equippedGuns[initGuns[0].buttonName];
     }
 
     private void Start()
     {
-        energy = statsManager.GetStatByIdentifierID(weaponEnergyIdentifier.GetDataIdentifierID());
+        energy = statsManager.GetStatByIdentifierID(IDTable.ENERGY);
         energy.OnDeprecate += EnergyDeprecated;
         InitialStateMachine();
         //idleState = ScriptableObject.CreateInstance<CooldownState>();
@@ -81,7 +78,7 @@ public class WeaponStateManager : StateManagers
     }
     public void ToggleFire(bool on)
     {
-        //flags[(int)GM_Flags.CanFire] = on;
+        runtimeFlags[IDTable.CAN_FIRE] = on;
         //if (!canFire)
         //{
         //    ResetFire();
@@ -95,20 +92,20 @@ public class WeaponStateManager : StateManagers
 
     public override void InputCheck()
     {
-        foreach (KeyValuePair<string, Gun> guns in equippedGuns)
-        {
-            if (Input.GetKey(guns.Key))
-            {
-                currentGun = guns.Value;
-                Debug.Log("SWICH TO " + guns.Value.stats.name);
-            }
-        }
+        //foreach (KeyValuePair<string, WeaponStat> guns in equippedGuns)
+        //{
+        //    if (Input.GetKey(guns.Key))
+        //    {
+        //        currentGun = guns.Value;
+        //        //Debug.Log("SWICH TO " + guns.Value.stats.name);
+        //    }
+        //}
     }
 
-    public void FireBullet()
-    {
-        currentGun.FireBullet(firePoint);
-    }
+    //public void FireBullet()
+    //{
+    //    currentGun.FireBullet(firePoint);
+    //}
 }
 
 [Serializable]
