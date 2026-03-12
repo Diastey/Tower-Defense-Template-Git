@@ -1,22 +1,12 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-
-//public enum GM_Flags
-//{
-//    CanFire
-//}
 
 [RequireComponent(typeof(Detector))]
 public class WeaponStateManager : StateManagers
 {
     public Detector detector;
     public State deprecatedState;
-    //public StatDefinition energyStatsIDRef;
-    //public Transform firePoint;
     //public List<EquipGun> initGuns = new List<EquipGun>();
-    //public BaseData weaponEnergyIdentifier;
-    //public float energyRechargePeriod = 2f;
 
     //[Space]
     //public WeaponStat currentGun;
@@ -28,12 +18,6 @@ public class WeaponStateManager : StateManagers
     public OnToggleFire onToggleFire;
     public delegate void OnFire();
     public OnFire onFire;
-
-    //[Space]
-    //public CooldownState idleState;
-    //public FireProjectileState firingState;
-    //public RecharingState recharingState;
-    //private StateMachine stateMachine = new StateMachine();
 
     private void OnEnable()
     {
@@ -63,14 +47,6 @@ public class WeaponStateManager : StateManagers
         energy = statsManager.GetStatByIdentifierID(IDTable.ENERGY);
         energy.OnDeprecate += EnergyDeprecated;
         InitialStateMachine();
-        //idleState = ScriptableObject.CreateInstance<CooldownState>();
-        //firingState = ScriptableObject.CreateInstance<FireProjectileState>();
-        //recharingState = ScriptableObject.CreateInstance<RecharingState>();
-
-        //idleState.Init(stateMachine, this);
-        //firingState.Init(stateMachine, this);
-        //recharingState.Init(stateMachine, this);
-        //stateMachine.InitializeState(idleState);
     }
 
     private void OnDestroy()
@@ -102,11 +78,6 @@ public class WeaponStateManager : StateManagers
         //    }
         //}
     }
-
-    //public void FireBullet()
-    //{
-    //    currentGun.FireBullet(firePoint);
-    //}
 }
 
 [Serializable]

@@ -1,8 +1,8 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-[CreateAssetMenu(fileName = "STC", menuName = "States/NewSTC")]
-public class StateTransitionCheck : BaseData, IStateTransitionCheck
+[Serializable]
+public class StateTransitionCheck : IStateTransitionCheck
 {
     public State transitionState;
     public List<CheckCondition> checkConditions;
